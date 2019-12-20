@@ -2,6 +2,7 @@ const quoteElement = document.querySelector('.display-box');
 const textDiv = document.querySelector('.quote-text');
 const authorDiv = document.querySelector('.quote-author');
 const newQuoteBtn = document.querySelector('.get-quote');
+const tweetBtn = document.querySelector('.tweet-button');
 
 function getQuote() {
   fetch('https://quote-garden.herokuapp.com/quotes/random')
@@ -36,7 +37,12 @@ function displayQuote(text, author) {
   }
 }
 
-//document.addEventListener('DOMContentLoaded', getQuote());
+// initialize quote
 getQuote();
 
 newQuoteBtn.addEventListener('click', getQuote);
+tweetBtn.addEventListener('click', (quote, author) => {
+  quote = textDiv.textContent;
+  author = authorDiv.textContent;
+  window.open(`https://twitter.com/intent/tweet?text="${quote}"   ${author}`);
+});
