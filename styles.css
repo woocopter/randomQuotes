@@ -62,3 +62,27 @@ button {
 button:hover {
   background-color: var(--secondary);
 }
+
+@media (max-width: 768px) {
+  .display-box {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 500px) {
+  .display-box {
+    max-width: 90%;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    margin-bottom: 10px;
+  }
+  .quote-text {
+    font-size: 2rem;
+  }
+}
